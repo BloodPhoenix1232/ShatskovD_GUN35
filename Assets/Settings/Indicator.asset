@@ -13,21 +13,21 @@ MonoBehaviour:
   m_Name: Indicator
   m_EditorClassIdentifier: 
   <Settings>k__BackingField:
-  - Mult: 0
+  - Mult: 1
     Text: 
     Clip: {fileID: 0}
-  - Mult: 0
-    Text: 
+  - Mult: 2
+    Text: Better now
     Clip: {fileID: 0}
-  - Mult: 0
-    Text: 
+  - Mult: 3
+    Text: Not bad
     Clip: {fileID: 0}
-  - Mult: 0
-    Text: 
+  - Mult: 4
+    Text: Good
     Clip: {fileID: 0}
-  - Mult: 0
-    Text: 
+  - Mult: 5
+    Text: Amazing
     Clip: {fileID: 0}
-  - Mult: 0
-    Text: 
+  - Mult: 6
+    Text: CARNAGE!!!
     Clip: {fileID: 0}
