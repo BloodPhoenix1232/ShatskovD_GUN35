@@ -18,13 +18,13 @@ MonoBehaviour:
     Clip: {fileID: 0}
   - Mult: 2
     Text: Better now
-    Clip: {fileID: 0}
+    Clip: {fileID: 7400000, guid: 8909ac7ac9a82474e9a81b4fa521489a, type: 2}
   - Mult: 3
     Text: Not bad
-    Clip: {fileID: 0}
+    Clip: {fileID: 7400000, guid: 8909ac7ac9a82474e9a81b4fa521489a, type: 2}
   - Mult: 4
     Text: Good
-    Clip: {fileID: 0}
+    Clip: {fileID: 7400000, guid: 8909ac7ac9a82474e9a81b4fa521489a, type: 2}
   - Mult: 5
     Text: Amazing
     Clip: {fileID: 0}
