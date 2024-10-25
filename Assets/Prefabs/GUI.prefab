@@ -217,9 +217,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4986986649101429336}
     m_Modifications:
+    - target: {fileID: 1104970445145838871, guid: 97f17189d72a0f14695b6ba8e3abce23, type: 3}
+      propertyPath: m_fontStyle
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2404979573566340379, guid: 97f17189d72a0f14695b6ba8e3abce23, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -77.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2404979573566340379, guid: 97f17189d72a0f14695b6ba8e3abce23, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -4.64
       objectReference: {fileID: 0}
     - target: {fileID: 3837455267904534415, guid: 97f17189d72a0f14695b6ba8e3abce23, type: 3}
       propertyPath: m_Name
@@ -312,10 +320,38 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1402010326982674181, guid: 97f17189d72a0f14695b6ba8e3abce23, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2969254196777561327}
   m_SourcePrefab: {fileID: 100100000, guid: 97f17189d72a0f14695b6ba8e3abce23, type: 3}
 --- !u!224 &1064562225849975311 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8872847972798197422, guid: 97f17189d72a0f14695b6ba8e3abce23, type: 3}
   m_PrefabInstance: {fileID: 8495096821293001889}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7390500971434175396 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1402010326982674181, guid: 97f17189d72a0f14695b6ba8e3abce23, type: 3}
+  m_PrefabInstance: {fileID: 8495096821293001889}
+  m_PrefabAsset: {fileID: 0}
+--- !u!111 &2969254196777561327
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7390500971434175396}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 5ea981de260564948807e8f6ddc6995c, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 5ea981de260564948807e8f6ddc6995c, type: 2}
+  - {fileID: 7400000, guid: 87638c7643c8c7447a2d5e344a51af33, type: 2}
+  - {fileID: 7400000, guid: 9ebd681db06616e4eb8a105b22ab1e7d, type: 2}
+  - {fileID: 7400000, guid: d0256dcd562e04344aa8408c642416d4, type: 2}
+  - {fileID: 7400000, guid: e9cfc6f8b4dfb39489002675968bda0b, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
