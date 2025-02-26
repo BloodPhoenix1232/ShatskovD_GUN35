@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 26
-  productGUID: e4f3ded1d12630d48a16fecafd352c04
+  productGUID: 8f8db337b7c40314a86e31527ab288e5
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: Tanks
+  productName: Serialization
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -677,14 +677,14 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: Tanks
+  metroPackageName: Serialization
   metroPackageVersion: 
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
   metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
-  metroApplicationDescription: Tanks
+  metroApplicationDescription: Serialization
   wsaImages: {}
   metroTileShortName: 
   metroTileShowName: 0
@@ -754,10 +754,10 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: 61714c52-7f23-402f-a140-bdf9128d0d86
+  cloudProjectId: 9a085bc5-37d9-4b0a-83bc-2e84c58e26df
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: Tanks
+  projectName: Serialization
   organizationId: blood_ph0enix
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
