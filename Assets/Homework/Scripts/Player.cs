@@ -3,51 +3,55 @@ using UnityEngine;
 
 namespace Netologia.Homework
 {
-	public class Player : MonoBehaviour
-	{
-		private bool _ready;
-		private Rigidbody _ball;
-		
-		[SerializeField]
-		private Rigidbody _ballPrefab;
-		[SerializeField]
-		private float _startVelocity;
-		[SerializeField]
-		private float _lifetime;
+    public class Player : MonoBehaviour
+    {
+        private bool _ready;
+        private Ball _ball;
 
-		[SerializeField]
-		private float _respawnDelay;
+        [SerializeField]
+        private Ball _ballPrefab;
+        [SerializeField]
+        private float _startVelocity;
+        [SerializeField]
+        private float _lifetime;
+        [SerializeField]
+        private float _respawnDelay;
 
-		private void Update()
-		{
-			if (!_ready) return;
-			if (Input.GetKey(KeyCode.Space))
-			{
-				StartCoroutine(Reloader());
-				_ball.isKinematic = false;
-				_ball.transform.parent = null;
-				_ball.velocity = transform.forward * _startVelocity;
-				Destroy(_ball.gameObject, _lifetime);
-			}
-		}
+        private void Update()
+        {
 
-		private IEnumerator Reloader()
-		{
-			_ready = false;
-			yield return new WaitForSeconds(_respawnDelay);
-			Spawn();
-		}
+            if (!_ready) return;
 
-		private void Spawn()
-		{
-			_ball = Instantiate(_ballPrefab, transform);
-			_ball.isKinematic = true;
-			_ready = true;
-		}
+            _ball.transform.position = transform.position + transform.forward * 1.5f;
+            if (Input.GetKey(KeyCode.Space))
+            {
+                StartCoroutine(Reloader());
 
-		private void Start()
-		{
-			Spawn();
-		}
-	}
+                
+                _ball.transform.parent = null;
+                _ball.Initialize(_startVelocity, _lifetime, transform.forward);
+                
+            }
+        }
+
+        private IEnumerator Reloader()
+        {
+            _ready = false;
+            yield return new WaitForSeconds(_respawnDelay);
+            Spawn();
+        }
+
+        private void Spawn()
+        {
+            Ball ballObject = Instantiate(_ballPrefab, transform.position + transform.forward * 1.5f, Quaternion.identity);
+
+            _ball = ballObject.GetComponent<Ball>();
+            _ready = true;
+        }
+
+        private void Start()
+        {
+            Spawn();
+        }
+    }
 }
