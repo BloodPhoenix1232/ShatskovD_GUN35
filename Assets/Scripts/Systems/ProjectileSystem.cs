@@ -2,6 +2,7 @@
 using Netologia.TowerDefence;
 using Netologia.TowerDefence.Behaviors;
 using UnityEngine;
+using UnityEngine.UIElements;
 using Zenject;
 
 namespace Netologia.Systems
@@ -15,7 +16,34 @@ namespace Netologia.Systems
 		
 		public void ManualUpdate()
 		{
-			//todo Netologia homework 
+			var deltaTime = TimeManager.DeltaTime;
+			foreach (var projectiles in this)
+			{
+				foreach (var projectile in projectiles)
+				{
+					var transform = projectile.transform;
+					var position = transform.position;
+					var target = projectile.TargetPosition;
+
+					var direction = Vector3.Normalize(target - position);
+					position += direction * (projectile.MoveSpeed * deltaTime);
+					transform.up = direction;
+					transform.position = position;
+
+					if(Vector3.SqrMagnitude(position - target) <= _hitDistance)
+					{
+						if(projectile.HasEffect)
+						{
+							var effect = _effects[projectile.HitEffect].Get;
+							effect.transform.position = position;
+							effect.Play();
+						}
+
+						projectile.DealDamage();
+						this[projectile.Ref].ReturnElement(projectile.ID);
+					}
+				}
+			}
 		}
 
 		public void OnDespawnUnit(int unitID)
