@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,6 +8,8 @@ public class Plant : MonoBehaviour
     [SerializeField] private GameObject _spawnPointFruit;
     [SerializeField] private float _spawnTime;
     [SerializeField] private List<GameObject> _prefabPoint;
+    [SerializeField] Basket _basket;
+    [SerializeField] private Grabber _grabber;
 
     private float _spawnTimeWas;
 
@@ -28,7 +29,16 @@ public class Plant : MonoBehaviour
                 _spawnTimeWas = 0;
 
                 _currentFruit = Instantiate(_fruitObject[0], _spawnPointFruit.transform.position, _fruitObject[0].transform.rotation).GetComponent<Fruit>();
+
+                _currentFruit.Init(_basket);
+                _currentFruit.transform.SetParent(transform, true);
+                _currentFruit.GetComponent<FruitMovement>().SetParentPlant(this);
             }
         }
+    }
+
+    public void DeleteFruit()
+    {
+        _currentFruit = null;
     }
 }

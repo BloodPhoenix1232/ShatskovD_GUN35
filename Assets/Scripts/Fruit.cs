@@ -1,18 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Fruit : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private Basket _basket;
 
-    // Update is called once per frame
-    void Update()
+    public Basket Basket => _basket;
+
+    public void Init(Basket basket)
     {
-        
+        _basket = basket;
     }
 }
