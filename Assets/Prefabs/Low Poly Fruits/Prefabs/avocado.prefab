@@ -147,6 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e99f3546e0cd90448e3f514bbf7c00a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fruitObject: {fileID: 11400000, guid: 0c87759a5135ef941a47c1911eb31402, type: 2}
 --- !u!114 &-6284378497725719695
 MonoBehaviour:
   m_ObjectHideFlags: 0

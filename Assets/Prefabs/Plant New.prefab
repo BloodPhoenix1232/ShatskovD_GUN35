@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 2665358153048961526}
   - component: {fileID: 8053050634653771501}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Plant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -193,7 +193,7 @@ MonoBehaviour:
   _spawnTime: 4
   _currentIndexFruit: 0
   _prefabPlant:
-  - {fileID: 6605480625736127643}
+  - {fileID: 3632732124648824481}
   - {fileID: 6181954143288238289}
   _currentIndexPlant: 0
   _plantEffect: {fileID: 0}
