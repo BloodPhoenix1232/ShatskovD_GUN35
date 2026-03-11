@@ -12,6 +12,8 @@ public class MeshSocket : MonoBehaviour
 
     Transform attachPoint;
 
+    public Transform AttachPoint => attachPoint;
+
     // Start is called before the first frame update
     void Start()
     {

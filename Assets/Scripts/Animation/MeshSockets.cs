@@ -13,7 +13,7 @@ public class MeshSockets : MonoBehaviour
     Dictionary<SocketId, MeshSocket> socketMap = new Dictionary<SocketId, MeshSocket>();
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         MeshSocket[] sockets = GetComponentsInChildren<MeshSocket>();
         foreach (var socket in sockets) {
