@@ -122,8 +122,8 @@ MonoBehaviour:
     m_Bits: 1025
   isFiring: 0
   debug: 0
-  fireRate: 15
-  bulletSpeed: 400
+  fireRate: 1
+  bulletSpeed: 1
   bulletDrop: 0
   maxBounces: 0
   ammoCount: 30
@@ -140,6 +140,7 @@ MonoBehaviour:
   raycastOrigin: {fileID: 5121350558847278068}
   recoil: {fileID: -9170932072026105468}
   magazine: {fileID: 4926740985929566116}
+  fireSound: {fileID: 8300000, guid: a245ee5d75348c84a89ffb7992f1dc82, type: 3}
 --- !u!114 &-9170932072026105468
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -18,9 +18,11 @@ public class MeleeEnemy : MonoBehaviour
     private float lastAttackTime;
     public GameObject knifePrefab;
 
-    GameObject knife;
-    MeshSockets sockets;
-    Animator animator;
+    private GameObject knife;
+    private MeshSockets sockets;
+    private Animator animator;
+    private bool isDead = false;
+
     void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -34,21 +36,25 @@ public class MeleeEnemy : MonoBehaviour
 
     void Update()
     {
+        if (isDead) return;
+
         if (sensor.Objects.Count > 0)
         {
             target = sensor.Objects[0];
             float distance = Vector3.Distance(transform.position, target.transform.position);
 
-            if (sockets != null)
+            if (sockets != null && knife != null)
             {
                 sockets.Attach(knife.transform, MeshSockets.SocketId.RightHand);
-
                 knife.transform.localEulerAngles = new Vector3(0f, 125f, -65f);
             }
 
             if (distance > attackRange)
             {
-                agent.SetDestination(target.transform.position);
+                if (agent != null && agent.isActiveAndEnabled && agent.isOnNavMesh)
+                {
+                    agent.SetDestination(target.transform.position);
+                }
             }
             else
             {
@@ -58,14 +64,16 @@ public class MeleeEnemy : MonoBehaviour
         else
         {
             target = null;
-            agent.ResetPath();
+            if (agent != null && agent.isActiveAndEnabled && agent.isOnNavMesh)
+            {
+                agent.ResetPath();
+            }
         }
     }
 
     void Attack()
     {
-        if (Time.time - lastAttackTime < attackCooldown)
-            return;
+        if (Time.time - lastAttackTime < attackCooldown) return;
 
         lastAttackTime = Time.time;
 
@@ -74,12 +82,34 @@ public class MeleeEnemy : MonoBehaviour
             animator.SetTrigger("attack_knife");
         }
 
-        Health playerHealth = target.GetComponent<Health>();
-        if (playerHealth != null)
+        if (target != null)
         {
-            Vector3 direction = (target.transform.position - transform.position).normalized;
-            playerHealth.TakeDamage(damage, direction);
+            Health playerHealth = target.GetComponent<Health>();
+            if (playerHealth != null)
+            {
+                Vector3 direction = (target.transform.position - transform.position).normalized;
+                playerHealth.TakeDamage(damage, direction);
+            }
         }
+    }
+
+    public void Die()
+    {
+        isDead = true;
+
+        if (agent != null) agent.enabled = false;
+
+        if (animator != null)
+        {
+            animator.SetTrigger("die");
+        }
+
+        if (knife != null)
+        {
+            knife.SetActive(false);
+        }
+
+        Destroy(gameObject, 5f);
     }
 
     void OnDrawGizmosSelected()

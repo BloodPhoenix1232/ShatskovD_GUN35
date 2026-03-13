@@ -35,14 +35,21 @@ public class RaycastWeapon : MonoBehaviour
     public WeaponRecoil recoil;
     public GameObject magazine;
 
+    public AudioClip fireSound;
+    private AudioSource audioSource;
+
     Ray ray;
     RaycastHit hitInfo;
     float accumulatedTime;
     List<Bullet> bullets = new List<Bullet>();
     float maxLifetime = 3.0f;
 
-    private void Awake() {
+    private void Awake()
+    {
         recoil = GetComponent<WeaponRecoil>();
+
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.playOnAwake = false;
     }
 
     Vector3 GetPosition(Bullet bullet) {
@@ -139,6 +146,12 @@ public class RaycastWeapon : MonoBehaviour
                 rb2d.AddForceAtPosition(ray.direction * 20, hitInfo.point, ForceMode.Impulse);
             }
 
+            var destructible = hitInfo.collider.GetComponent<Destructible>();
+            if (destructible != null)
+            {
+                destructible.TakeDamage(damage);
+            }
+
             var hitBox = hitInfo.collider.GetComponent<HitBox>();
             if (hitBox) {
                 hitBox.OnRaycastHit(this, ray.direction);
@@ -162,6 +175,11 @@ public class RaycastWeapon : MonoBehaviour
 
         foreach (var particle in muzzleFlash) {
             particle.Emit(1);
+        }
+
+        if (fireSound != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(fireSound);
         }
 
         Vector3 velocity = (target - raycastOrigin.position).normalized * bulletSpeed;

@@ -87,12 +87,12 @@ public class ActiveWeapon : MonoBehaviour
         }
     }
 
-    public void Equip(RaycastWeapon newWeapon) {
+    public void Equip(RaycastWeapon newWeapon)
+    {
         int weaponSlotIndex = (int)newWeapon.weaponSlot;
         var weapon = GetWeapon(weaponSlotIndex);
-        if (weapon) {
-            Destroy(weapon.gameObject);
-        }
+        if (weapon) Destroy(weapon.gameObject);
+
         weapon = newWeapon;
         weapon.recoil.characterAiming = characterAiming;
         weapon.recoil.animator = rigController;
@@ -101,8 +101,14 @@ public class ActiveWeapon : MonoBehaviour
 
         SetActiveWeapon(newWeapon.weaponSlot);
 
-        if (ammoWidget) {
+        if (ammoWidget)
             ammoWidget.Refresh(weapon.ammoCount, weapon.clipCount);
+
+        AutoShoot autoShoot = weapon.GetComponent<AutoShoot>();
+        if (autoShoot)
+        {
+            autoShoot.targetFinder = GetComponent<AutoTarget>();
+            autoShoot.rayWeapon = weapon;
         }
     }
 
