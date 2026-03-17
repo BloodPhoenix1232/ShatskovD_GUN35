@@ -10638,6 +10638,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _towerSource: {fileID: 448978622}
   _projectileSource: {fileID: 411372665}
+  _weatherSource: {fileID: 153825814}
 --- !u!1001 &778241190
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31332,7 +31333,7 @@ MonoBehaviour:
   _effects: {fileID: 2058342636}
   _wave: {fileID: 2075770339}
   _interface: {fileID: 2012005875}
-  _audio: {fileID: 0}
+  _audio: {fileID: 775450924}
   _cell: {fileID: 2012005876}
   _playerHP: 100
   _gold: 100

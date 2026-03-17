@@ -13,6 +13,7 @@ namespace Netologia
 			None = 0,
 			Tower = 1,
 			Projectile = 2,
+			Weather = 3,
 		}
 
 		private float _volume;
@@ -24,8 +25,10 @@ namespace Netologia
 		private AudioSource _towerSource;
 		[SerializeField]
 		private AudioSource _projectileSource;
+        [SerializeField]
+        private AudioSource _weatherSource;
 
-		public float Volume
+        public float Volume
 		{
 			get => _volume;
 			set
@@ -33,7 +36,8 @@ namespace Netologia
 				_volume = value;
 				_towerSource.volume = value;
 				_projectileSource.volume = value;
-			}
+                _weatherSource.volume = value;
+            }
 		}
 		
 		public static void PlayAttack(AudioClip clip)
@@ -59,7 +63,9 @@ namespace Netologia
 				_sources.Add(AudioSourceType.Tower, _towerSource);
 			if(_projectileSource != null)
 				_sources.Add(AudioSourceType.Projectile, _projectileSource);
-		}
+            if (_projectileSource != null)
+                _sources.Add(AudioSourceType.Weather, _weatherSource);
+        }
 
 		private void OnDestroy()
 		{
