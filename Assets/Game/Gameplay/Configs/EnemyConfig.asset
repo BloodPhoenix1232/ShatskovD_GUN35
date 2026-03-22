@@ -21,4 +21,4 @@ MonoBehaviour:
   visionRadius: 10
   timeBetweenAttack: 0.8
   damageType: 0
-  teamId: 0
+  teamId: 1
