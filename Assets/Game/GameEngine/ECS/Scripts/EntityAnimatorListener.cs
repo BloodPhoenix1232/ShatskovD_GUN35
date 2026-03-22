@@ -26,7 +26,7 @@ namespace Game.GameEngine.Ecs
 
         private void OnMessageReceived(string message)
         {
-            this.entity.SendEvent(new AnimatorEvent {message = message});
+            this.entity.SendEvent(new AnimatorEvent { message = message });
         }
     }
 }

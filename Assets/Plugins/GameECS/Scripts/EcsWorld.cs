@@ -476,6 +476,17 @@ namespace GameECS
             }
         }
 
+        public IEnumerable<int> GetEntities()
+        {
+            for (int i = 0; i < this.entities.Count; i++)
+            {
+                if (this.entities[i])
+                {
+                    yield return i;
+                }
+            }
+        }
+
 #if UNITY_EDITOR
 
         private readonly List<IEcsDrawGizmos> gizmosSystems = new();

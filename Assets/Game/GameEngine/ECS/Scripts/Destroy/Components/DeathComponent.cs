@@ -1,12 +1,12 @@
 using System;
+using UnityEngine;
 
 namespace Game.GameEngine.Ecs
 {
     [Serializable]
-    public struct HitPointsComponent
+    public struct DeathComponent
     {
-        public int max;
-        public int current;
         public bool isDead;
+        public float deathTime;
     }
 }

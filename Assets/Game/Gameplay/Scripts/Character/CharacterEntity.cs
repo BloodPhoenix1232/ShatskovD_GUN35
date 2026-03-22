@@ -26,11 +26,12 @@ namespace Entities
             {
                 value = this.GetComponentInChildren<AnimatorMachine>()
             });
-            
+
             this.SetData(new HitPointsComponent
             {
                 max = this.config.hitPoints,
-                current = this.config.hitPoints
+                current = this.config.hitPoints,
+                isDead = false
             });
 
             this.SetData(new MoveSpeedComponent
@@ -57,6 +58,28 @@ namespace Entities
             this.SetData(new RendererComponent
             {
                 value = this.GetComponentInChildren<Renderer>()
+            });
+
+            this.SetData(new MoveStateComponent
+            {
+                moveRequired = false,
+                direction = Vector3.zero
+            });
+
+            this.SetData(new DeathComponent
+            {
+                isDead = false,
+                deathTime = 0
+            });
+
+            this.SetData(new VisionComponent
+            {
+                radius = this.config.visionRadius = 10f
+            });
+
+            this.SetData(new TeamComponent
+            {
+                teamId = this.config.teamId
             });
         }
     }

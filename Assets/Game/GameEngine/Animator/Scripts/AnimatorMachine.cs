@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -39,6 +40,8 @@ namespace Game.GameEngine.Ecs
         {
             get { return this.stateId; }
         }
+
+        public Animator Animator => this.animator;
 
         [ReadOnly]
         [ShowInInspector]
@@ -175,6 +178,43 @@ namespace Game.GameEngine.Ecs
         public interface ISpeedMultiplier
         {
             float GetValue();
+        }
+
+        public void PlayDeathAnimation(string animationName, string layerName, Action onComplete)
+        {
+            this.animator.SetInteger(STATE_PARAMETER, -1);
+
+            this.PlayAnimation(animationName, layerName, 0);
+
+            this.StartCoroutine(WaitForAnimationEnd(animationName, layerName, onComplete));
+        }
+
+        private IEnumerator WaitForAnimationEnd(string animationName, string layerName, Action onComplete)
+        {
+            yield return new WaitForEndOfFrame();
+
+            int layerIndex = this.animator.GetLayerIndex(layerName);
+            AnimatorStateInfo stateInfo = this.animator.GetCurrentAnimatorStateInfo(layerIndex);
+
+            float timeout = 1f;
+            while (!stateInfo.IsName(animationName) && timeout > 0)
+            {
+                yield return null;
+                timeout -= Time.deltaTime;
+                stateInfo = this.animator.GetCurrentAnimatorStateInfo(layerIndex);
+            }
+
+            if (stateInfo.IsName(animationName))
+            {
+                float animationLength = stateInfo.length;
+                yield return new WaitForSeconds(animationLength);
+            }
+            else
+            {
+                yield return null;
+            }
+
+            onComplete?.Invoke();
         }
     }
 }

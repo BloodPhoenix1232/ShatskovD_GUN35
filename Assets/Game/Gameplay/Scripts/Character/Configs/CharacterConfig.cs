@@ -22,7 +22,9 @@ namespace SampleProject
         public int damage = 1;
         public float minDistance = 1.0f;
         public float animationTime = 1.4f;
+        public float visionRadius = 10f;
         public float timeBetweenAttack = 0.8f;
         public DamageType damageType = DamageType.MELEE;
+        public int teamId;
     }
 }
