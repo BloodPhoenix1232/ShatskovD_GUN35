@@ -9,6 +9,7 @@ public class PlayerHealth : MonoBehaviour
     private int _currentHealth;
     private bool _isInvincible;
     private float _invincibilityTimer;
+    private Animator _animator;
 
     public int CurrentHealth => _currentHealth;
     public int MaxHealth => _maxHealth;
@@ -22,6 +23,7 @@ public class PlayerHealth : MonoBehaviour
     private void Awake()
     {
         _currentHealth = _maxHealth;
+        _animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -40,9 +42,8 @@ public class PlayerHealth : MonoBehaviour
     {
         if (_isInvincible) return;
         if (_currentHealth <= 0) return;
-        
+
         _currentHealth -= damage;
-        Debug.Log("Урон" + _currentHealth);
         HealthChanged?.Invoke(_currentHealth, _maxHealth);
 
         if (_currentHealth <= 0)
@@ -58,6 +59,23 @@ public class PlayerHealth : MonoBehaviour
 
     private void Die()
     {
+        if (_animator != null)
+        {
+            _animator.SetTrigger("Die");
+        }
+
+        PlayerController controller = GetComponent<PlayerController>();
+        if (controller != null)
+        {
+            controller.canMove = false;
+        }
+
+        PlayerResize resize = GetComponent<PlayerResize>();
+        if (resize != null)
+        {
+            resize.canResize = false;
+        }
+
         PlayerDied?.Invoke();
     }
 }

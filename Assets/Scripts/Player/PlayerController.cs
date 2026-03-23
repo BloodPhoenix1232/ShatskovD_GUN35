@@ -1,3 +1,4 @@
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -21,6 +22,7 @@ public class PlayerController : MonoBehaviour
     private bool _isGrounded;
     private Collider2D _collider;
     private PlayerResize _playerResize;
+    private Animator _animator;
 
     [HideInInspector]
     public bool canMove = true;
@@ -32,6 +34,7 @@ public class PlayerController : MonoBehaviour
         _collider = GetComponent<Collider2D>();
         _playerResize = GetComponent<PlayerResize>();
         _playerControls = new PlayerControls();
+        _animator = GetComponent<Animator>();
     }
 
     private void OnEnable()
@@ -50,14 +53,34 @@ public class PlayerController : MonoBehaviour
         _playerControls.Gameplay.Jump.performed -= OnJumpPerformed;
     }
 
+    private void Start()
+    {
+        transform.localScale = new Vector3(1, 1, 1);
+    }
+
     private void Update()
     {
         CheckGrounded();
+        UpdateAnimations();
     }
 
     private void FixedUpdate()
     {
         Move();
+    }
+
+    private void UpdateAnimations()
+    {
+        if (_animator == null) return;
+
+        float speed = Mathf.Abs(_moveInput);
+        _animator.SetFloat("Speed", speed);
+        _animator.SetBool("IsGrounded", _isGrounded);
+
+        if (_isGrounded && _rb.velocity.y <= 0)
+        {
+            _animator.SetBool("Jump", false);
+        }
     }
 
     private void OnMovePerformed(InputAction.CallbackContext context)
@@ -76,13 +99,24 @@ public class PlayerController : MonoBehaviour
     private void OnJumpPerformed(InputAction.CallbackContext context)
     {
         if (!canMove) return;
-
         if (_isGrounded)
         {
-            float jumpMultiplier = Mathf.Lerp(_minJumpMultiplier, _maxJumpMultiplier, _playerResize.CurrentScale);
+            float currentScale = _playerResize.CurrentScale;
+
+            float minScale = 1f;
+            float maxScale = 3f;
+            float t = (currentScale - minScale) / (maxScale - minScale);
+            float jumpMultiplier = Mathf.Lerp(_minJumpMultiplier, _maxJumpMultiplier, t);
             float jumpForce = _baseJumpForce * jumpMultiplier;
 
+            Debug.Log($"Scale: {currentScale}, t: {t}, Multiplier: {jumpMultiplier}, Force: {jumpForce}");
+
             _rb.velocity = new Vector2(_rb.velocity.x, jumpForce);
+
+            if (_animator != null)
+            {
+                _animator.SetBool("Jump", true);
+            }
         }
     }
 
