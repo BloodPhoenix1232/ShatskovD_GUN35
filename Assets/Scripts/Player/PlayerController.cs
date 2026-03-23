@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -9,8 +10,8 @@ public class PlayerController : MonoBehaviour
 
     [Header("Jump Settings")]
     [SerializeField] private float _baseJumpForce = 10f;
-    [SerializeField] private float _minJumpMultiplier = 0.5f;  // для маленького размера
-    [SerializeField] private float _maxJumpMultiplier = 1.5f;  // для большого размера
+    [SerializeField] private float _minJumpMultiplier = 0.5f;
+    [SerializeField] private float _maxJumpMultiplier = 1.5f;
     [SerializeField] private float _groundCheckRadius = 0.2f;
     [SerializeField] private LayerMask _groundLayer;
 
@@ -20,6 +21,10 @@ public class PlayerController : MonoBehaviour
     private bool _isGrounded;
     private Collider2D _collider;
     private PlayerResize _playerResize;
+
+    [HideInInspector]
+    public bool canMove = true;
+
 
     private void Awake()
     {
@@ -57,6 +62,8 @@ public class PlayerController : MonoBehaviour
 
     private void OnMovePerformed(InputAction.CallbackContext context)
     {
+        if (!canMove) return;
+
         Vector2 input = context.ReadValue<Vector2>();
         _moveInput = input.x;
     }
@@ -68,6 +75,8 @@ public class PlayerController : MonoBehaviour
 
     private void OnJumpPerformed(InputAction.CallbackContext context)
     {
+        if (!canMove) return;
+
         if (_isGrounded)
         {
             float jumpMultiplier = Mathf.Lerp(_minJumpMultiplier, _maxJumpMultiplier, _playerResize.CurrentScale);

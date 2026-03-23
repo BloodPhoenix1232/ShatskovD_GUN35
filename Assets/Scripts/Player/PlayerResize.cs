@@ -12,6 +12,10 @@ public class PlayerResize : MonoBehaviour
     private float _targetScale;
     private bool _isSmall = false;
 
+    [HideInInspector]
+    public bool canResize = true;
+
+
     public float CurrentScale => transform.localScale.x;
 
     private void Awake()
@@ -40,6 +44,7 @@ public class PlayerResize : MonoBehaviour
 
     private void OnResizePerformed(InputAction.CallbackContext context)
     {
+        if (!canResize) return;
         _isSmall = !_isSmall;
         _targetScale = _isSmall ? _smallScale : _normalScale;
     }
