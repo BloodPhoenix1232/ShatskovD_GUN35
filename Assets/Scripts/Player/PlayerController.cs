@@ -109,8 +109,6 @@ public class PlayerController : MonoBehaviour
             float jumpMultiplier = Mathf.Lerp(_minJumpMultiplier, _maxJumpMultiplier, t);
             float jumpForce = _baseJumpForce * jumpMultiplier;
 
-            Debug.Log($"Scale: {currentScale}, t: {t}, Multiplier: {jumpMultiplier}, Force: {jumpForce}");
-
             _rb.velocity = new Vector2(_rb.velocity.x, jumpForce);
 
             if (_animator != null)

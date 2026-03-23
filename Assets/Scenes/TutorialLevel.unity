@@ -28644,6 +28644,28 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1dcf0c0b952fcaa4aae61ee2c72e5608, type: 3}
+--- !u!114 &115762877891038616 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4390106810456601437, guid: 1dcf0c0b952fcaa4aae61ee2c72e5608, type: 3}
+  m_PrefabInstance: {fileID: 115762877891038615}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &115762877891038617 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1306673952808830772, guid: 1dcf0c0b952fcaa4aae61ee2c72e5608, type: 3}
+  m_PrefabInstance: {fileID: 115762877891038615}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &537442978210823153
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28757,6 +28779,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseManager
       objectReference: {fileID: 0}
+    - target: {fileID: 9198164548843440107, guid: 0447372a4a8c89b43b71f66801f91b89, type: 3}
+      propertyPath: _sfxSlider
+      value: 
+      objectReference: {fileID: 115762877891038616}
+    - target: {fileID: 9198164548843440107, guid: 0447372a4a8c89b43b71f66801f91b89, type: 3}
+      propertyPath: _musicSlider
+      value: 
+      objectReference: {fileID: 115762877891038617}
     - target: {fileID: 9198164548843440107, guid: 0447372a4a8c89b43b71f66801f91b89, type: 3}
       propertyPath: _pauseCanvas
       value: 

@@ -6,6 +6,8 @@ public class Button : MonoBehaviour
     [SerializeField] private float _doorMoveDistance = 3f;
     [SerializeField] private float _doorMoveSpeed = 2f;
     [SerializeField] private Sprite _pressedSprite;
+    [SerializeField] private AudioClip _pressSound;
+    [SerializeField] private AudioClip _doorOpenedSound;
 
     private Vector3 _doorStartPosition;
     private Vector3 _doorTargetPosition;
@@ -13,6 +15,7 @@ public class Button : MonoBehaviour
     private Sprite _defaultSprite;
     private bool _isPressed;
     private bool _doorMoving;
+    private AudioSource _audioSource;
 
     private void Start()
     {
@@ -26,6 +29,12 @@ public class Button : MonoBehaviour
         if (_spriteRenderer != null)
         {
             _defaultSprite = _spriteRenderer.sprite;
+        }
+
+        _audioSource = GetComponent<AudioSource>();
+        if (_audioSource == null && _pressSound != null)
+        {
+            _audioSource = gameObject.AddComponent<AudioSource>();
         }
     }
 
@@ -52,6 +61,12 @@ public class Button : MonoBehaviour
         if (other.TryGetComponent<PlayerController>(out _))
         {
             _isPressed = true;
+
+            if (_pressSound != null)
+            {
+                AudioManager.Instance?.PlaySFX(_pressSound);
+                AudioManager.Instance?.PlaySFX(_doorOpenedSound);
+            }
 
             if (_spriteRenderer != null && _pressedSprite != null)
             {
