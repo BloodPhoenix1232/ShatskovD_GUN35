@@ -40,8 +40,9 @@ public class PlayerHealth : MonoBehaviour
     {
         if (_isInvincible) return;
         if (_currentHealth <= 0) return;
-
+        
         _currentHealth -= damage;
+        Debug.Log("Урон" + _currentHealth);
         HealthChanged?.Invoke(_currentHealth, _maxHealth);
 
         if (_currentHealth <= 0)

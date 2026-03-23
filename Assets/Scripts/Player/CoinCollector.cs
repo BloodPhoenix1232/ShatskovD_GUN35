@@ -7,6 +7,9 @@ public class CoinCollector : MonoBehaviour
 
     private int _currentCoins;
 
+    public int CurrentCoins => _currentCoins;
+    public int RequiredCoins => _requiredCoins;
+
     public delegate void OnCoinsChanged(int currentCoins, int requiredCoins);
     public event OnCoinsChanged CoinsChanged;
 
