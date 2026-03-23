@@ -498,7 +498,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2729188786411209661, guid: 1dadfb6e627f5ca4e9b5cbc5fb76cec7, type: 3}
       propertyPath: m_Name
-      value: Model
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 2729188786411209661, guid: 1dadfb6e627f5ca4e9b5cbc5fb76cec7, type: 3}
       propertyPath: m_Layer
@@ -16940,6 +16940,14 @@ PrefabInstance:
     - target: {fileID: 8130921515361137296, guid: 39868262e399a4c48bf3739708613d2b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8325526620327960251, guid: 39868262e399a4c48bf3739708613d2b, type: 3}
+      propertyPath: _nextLevelName
+      value: MainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 8325526620327960251, guid: 39868262e399a4c48bf3739708613d2b, type: 3}
+      propertyPath: _nextLevelIndex
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
