@@ -22024,6 +22024,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrapShooter (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3307293194061179517, guid: e42aa8938b5c5df4faa9d3cee61d6a48, type: 3}
+      propertyPath: _projectilePool
+      value: 
+      objectReference: {fileID: 1955980636}
     - target: {fileID: 3516292383275795698, guid: e42aa8938b5c5df4faa9d3cee61d6a48, type: 3}
       propertyPath: m_LocalPosition.x
       value: 26.285471
