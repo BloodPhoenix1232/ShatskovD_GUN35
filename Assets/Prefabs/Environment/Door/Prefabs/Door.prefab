@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8126221914772496213}
   - component: {fileID: 8088301706529518669}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DoorZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -62,7 +62,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8130921515361137376}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Controls1:polyToCurve6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8130921515361137378}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Controls1:polyToCurve6 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8130921515361137380}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -161,7 +161,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8130921515361137382}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Lock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -196,7 +196,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8130921515361137384}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Controls1:polyToCurve4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -227,7 +227,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8130921515361137386}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Controls1:polyToCurve4 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -258,7 +258,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8130921515361137388}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Controls1:polyToCurve5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -289,7 +289,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8130921515361137390}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Controls1:polyToCurve5 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -320,7 +320,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8130921515361137392}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Controls1:polyToCurve2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -351,7 +351,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8130921515361137394}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Controls1:polyToCurve2 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -382,7 +382,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8130921515361137396}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Controls1:polyToCurve3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -413,7 +413,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8130921515361137398}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Controls1:polyToCurve3 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -444,7 +444,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8130921515361137400}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Controls1:polyToCurve14
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -475,7 +475,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8130921515361137402}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Controls1:polyToCurve16
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -506,7 +506,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8130921515361137404}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Controls1:polyToCurve17
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -537,7 +537,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8130921515361137406}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Controls1:polyToCurve18
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -570,7 +570,7 @@ GameObject:
   - component: {fileID: 8130921515361137280}
   - component: {fileID: 8130921515359810294}
   - component: {fileID: 8130921515358842934}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SimpleDoor_Handle2_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -653,7 +653,7 @@ GameObject:
   - component: {fileID: 8130921515361137282}
   - component: {fileID: 8130921515359810280}
   - component: {fileID: 8130921515358842920}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SimpleDoor_Handle2_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -736,7 +736,7 @@ GameObject:
   - component: {fileID: 8130921515361137284}
   - component: {fileID: 8130921515359810282}
   - component: {fileID: 8130921515358842922}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SimpleDoor_MainDoor_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -821,7 +821,7 @@ GameObject:
   - component: {fileID: 8130921515361137286}
   - component: {fileID: 8130921515359810284}
   - component: {fileID: 8130921515358842924}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SimpleDoor_MainDoor_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -907,7 +907,7 @@ GameObject:
   - component: {fileID: 8130921515361137288}
   - component: {fileID: 8130921515359810302}
   - component: {fileID: 8130921515358842942}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SimpleDoor_Handle1_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -990,7 +990,7 @@ GameObject:
   - component: {fileID: 8130921515361137290}
   - component: {fileID: 8130921515359810288}
   - component: {fileID: 8130921515358842928}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SimpleDoor_Handle1_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1073,7 +1073,7 @@ GameObject:
   - component: {fileID: 8130921515361137292}
   - component: {fileID: 8130921515359810290}
   - component: {fileID: 8130921515358842930}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SimpleDoor_Handle1_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1156,7 +1156,7 @@ GameObject:
   - component: {fileID: 8130921515361137294}
   - component: {fileID: 8130921515359810292}
   - component: {fileID: 8130921515358842932}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SimpleDoor_Handle2_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1241,7 +1241,7 @@ GameObject:
   - component: {fileID: 8130921515342407288}
   - component: {fileID: 6381366604805605653}
   - component: {fileID: 8325526620327960251}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1396,7 +1396,7 @@ GameObject:
   - component: {fileID: 8130921515361137298}
   - component: {fileID: 8130921515359810296}
   - component: {fileID: 8130921515358842936}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SimpleDoor_DoorFrame_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1479,7 +1479,7 @@ GameObject:
   - component: {fileID: 8130921515361137300}
   - component: {fileID: 8130921515359810298}
   - component: {fileID: 8130921515358842938}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SimpleDoor_DoorFrame_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1563,7 +1563,7 @@ GameObject:
   - component: {fileID: 8130921515361137302}
   - component: {fileID: 8130921515359810300}
   - component: {fileID: 8130921515358842940}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SimpleDoor_DoorFrame_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1645,7 +1645,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8130921515361137304}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: polyToCurve1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1676,7 +1676,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8130921515361137306}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: polyToCurve2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1707,7 +1707,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8130921515361137308}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: polyToCurve4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1738,7 +1738,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8130921515361137310}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: polyToCurve5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1769,7 +1769,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8130921515361137344}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Controls1:polyToCurve1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1800,7 +1800,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8130921515361137346}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Controls1:polyToCurve1 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1831,7 +1831,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8130921515361137348}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Controls1:polyToCurve11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1862,7 +1862,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8130921515361137350}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Controls1:polyToCurve13
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1893,7 +1893,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8130921515361137352}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Controls1:OPEN1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1924,7 +1924,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8130921515361137354}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Controls1:OPEN3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1955,7 +1955,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8130921515361137356}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Controls1:Open_Close
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1988,7 +1988,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8130921515361137358}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Controls1:Open_Close1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2021,7 +2021,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8130921515361137360}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Controls1:curve3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2052,7 +2052,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8130921515361137362}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Controls1:curve3 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2083,7 +2083,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8130921515361137364}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Controls1:curve4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2114,7 +2114,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8130921515361137366}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Controls1:curve5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2145,7 +2145,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8130921515361137368}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Controls1:CLOSE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2182,7 +2182,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8130921515361137370}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Controls1:CLOSE1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2219,7 +2219,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8130921515361137372}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Controls1:curve2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2250,7 +2250,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8130921515361137374}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Controls1:curve2 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2283,7 +2283,7 @@ GameObject:
   - component: {fileID: 8130921515361137336}
   - component: {fileID: 8130921515359810286}
   - component: {fileID: 8130921515358842926}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SimpleDoor_MainDoor_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2367,7 +2367,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8130921515361137338}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: UI_Curve
   m_TagString: Untagged
   m_Icon: {fileID: 0}
