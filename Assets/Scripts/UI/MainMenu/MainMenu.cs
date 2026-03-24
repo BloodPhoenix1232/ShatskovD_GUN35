@@ -18,4 +18,9 @@ public class MainMenu : MonoBehaviour
         UnityEditor.EditorApplication.isPlaying = false;
 #endif
     }
+
+    public void OpenLevelSelect()
+    {
+        SceneManager.LoadScene("LevelSelect");
+    }
 }
