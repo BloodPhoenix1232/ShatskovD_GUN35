@@ -248,4 +248,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxHealth: 3
-  _invincibilityDuration: 3
+  _invincibilityDuration: 1.5
