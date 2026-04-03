@@ -3,11 +3,15 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    [SerializeField] private string _gameSceneName = "TutorialLevel";
-
     public void StartGame()
     {
-        SceneManager.LoadScene(_gameSceneName);
+        SaveData data = SaveSystem.Instance?.LoadGame();
+        int unlockedLevel = data?.unlockedLevel ?? 1;
+
+        int firstLevelIndex = unlockedLevel;
+
+        SceneManager.LoadScene(firstLevelIndex + 1);
+        Time.timeScale = 1f;
     }
 
     public void QuitGame()
@@ -22,5 +26,10 @@ public class MainMenu : MonoBehaviour
     public void OpenLevelSelect()
     {
         SceneManager.LoadScene("LevelSelect");
+    }
+
+    public void ResetProgress()
+    {
+        SaveSystem.Instance?.DeleteSave();
     }
 }

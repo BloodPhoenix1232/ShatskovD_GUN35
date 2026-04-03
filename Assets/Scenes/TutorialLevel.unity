@@ -175,12 +175,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8325526620327960251, guid: 39868262e399a4c48bf3739708613d2b, type: 3}
-      propertyPath: _nextLevelName
+      propertyPath: _levelName
       value: Level 1
       objectReference: {fileID: 0}
     - target: {fileID: 8325526620327960251, guid: 39868262e399a4c48bf3739708613d2b, type: 3}
+      propertyPath: _levelIndex
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8325526620327960251, guid: 39868262e399a4c48bf3739708613d2b, type: 3}
+      propertyPath: _nextLevelName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8325526620327960251, guid: 39868262e399a4c48bf3739708613d2b, type: 3}
       propertyPath: _nextLevelIndex
-      value: 2
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
