@@ -23,6 +23,8 @@ public class PlayerController : MonoBehaviour
     private Collider2D _collider;
     private PlayerResize _playerResize;
     private Animator _animator;
+    private SpriteRenderer _spriteRenderer;
+
 
     [HideInInspector]
     public bool canMove = true;
@@ -35,6 +37,7 @@ public class PlayerController : MonoBehaviour
         _playerResize = GetComponent<PlayerResize>();
         _playerControls = new PlayerControls();
         _animator = GetComponent<Animator>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void OnEnable()
@@ -122,6 +125,15 @@ public class PlayerController : MonoBehaviour
     {
         Vector2 velocity = new Vector2(_moveInput * _moveSpeed, _rb.velocity.y);
         _rb.velocity = velocity;
+
+        if (_moveInput > 0)
+        {
+            _spriteRenderer.flipX = false;
+        }
+        else if (_moveInput < 0)
+        {
+            _spriteRenderer.flipX = true;
+        }
     }
 
     private void CheckGrounded()

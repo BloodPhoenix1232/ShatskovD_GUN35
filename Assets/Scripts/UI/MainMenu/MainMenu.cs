@@ -5,7 +5,7 @@ public class MainMenu : MonoBehaviour
 {
     public void StartGame()
     {
-        SaveData data = SaveSystem.Instance?.LoadGame();
+        SaveData data = SaveSystem.Instance?.GetData();
         int unlockedLevel = data?.unlockedLevel ?? 1;
 
         int firstLevelIndex = unlockedLevel;

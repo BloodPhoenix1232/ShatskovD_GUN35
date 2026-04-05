@@ -1,23 +1,18 @@
 using UnityEngine;
 
-public class MeleeEnemy : MonoBehaviour
+public class MeleeEnemy : Enemy
 {
     [SerializeField] private float _moveSpeed = 2f;
     [SerializeField] private float _moveRange = 3f;
     [SerializeField] private LayerMask _groundLayer;
     [SerializeField] private Transform _groundCheck;
     [SerializeField] private float _groundCheckRadius = 0.2f;
-
-    [SerializeField] private int _damage = 1;
-    [SerializeField] private float _damageCooldown = 1f;
-
     [SerializeField] private Animator _animator;
 
     private Rigidbody2D _rb;
     private float _leftBoundary;
     private float _rightBoundary;
     private bool _movingRight = true;
-    private float _lastDamageTime;
     private float _moveInput;
 
     private void Start()
@@ -74,15 +69,12 @@ public class MeleeEnemy : MonoBehaviour
     private void UpdateAnimations()
     {
         if (_animator == null) return;
-
-        float speed = Mathf.Abs(_moveInput);
-        _animator.SetFloat("Speed", speed);
+        _animator.SetFloat("Speed", Mathf.Abs(_moveInput));
     }
 
     private void CheckGrounded()
     {
         if (_groundCheck == null) return;
-
         bool isGrounded = Physics2D.OverlapCircle(_groundCheck.position, _groundCheckRadius, _groundLayer);
         if (_animator != null)
         {
@@ -90,16 +82,9 @@ public class MeleeEnemy : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay2D(Collider2D other)
+    public void TakeDamage(int damage)
     {
-        if (other.TryGetComponent<PlayerHealth>(out PlayerHealth health))
-        {
-            if (Time.time - _lastDamageTime >= _damageCooldown)
-            {
-                health.TakeDamage(_damage);
-                _lastDamageTime = Time.time;
-            }
-        }
+        Die();
     }
 
     private void OnDrawGizmosSelected()

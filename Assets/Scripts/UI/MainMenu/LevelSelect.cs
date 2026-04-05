@@ -8,7 +8,7 @@ public class LevelSelect : MonoBehaviour
 
     private void Start()
     {
-        SaveData data = SaveSystem.Instance?.LoadGame();
+        SaveData data = SaveSystem.Instance?.GetData();
         int unlockedLevel = data?.unlockedLevel ?? 1;
 
         UpdateLevelButtons();
@@ -16,7 +16,7 @@ public class LevelSelect : MonoBehaviour
 
     private void UpdateLevelButtons()
     {
-        SaveData data = SaveSystem.Instance?.LoadGame();
+        SaveData data = SaveSystem.Instance?.GetData();
         int unlockedLevel = data?.unlockedLevel ?? 1;
 
         for (int i = 0; i < _levelButtons.Length; i++)

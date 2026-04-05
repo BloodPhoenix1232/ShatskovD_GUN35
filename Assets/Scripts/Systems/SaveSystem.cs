@@ -4,8 +4,8 @@ using System.IO;
 [System.Serializable]
 public class SaveData
 {
-    public int totalCoins;
     public int unlockedLevel;
+    public int diamonds;
 }
 
 public class SaveSystem : MonoBehaviour
@@ -13,6 +13,7 @@ public class SaveSystem : MonoBehaviour
     public static SaveSystem Instance { get; private set; }
 
     private string savePath;
+    private SaveData _cachedData;
 
     private void Awake()
     {
@@ -21,6 +22,7 @@ public class SaveSystem : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
             savePath = Application.persistentDataPath + "/save.dat";
+            LoadGame();
         }
         else
         {
@@ -28,31 +30,45 @@ public class SaveSystem : MonoBehaviour
         }
     }
 
-    public void SaveGame(int totalCoins, int unlockedLevel)
+    public void SaveGame()
     {
-        SaveData data = new SaveData();
-        data.totalCoins = totalCoins;
-        data.unlockedLevel = unlockedLevel;
+        if (_cachedData == null) return;
 
-        string json = JsonUtility.ToJson(data);
+        string json = JsonUtility.ToJson(_cachedData);
         File.WriteAllText(savePath, json);
     }
 
-    public SaveData LoadGame()
+    private void LoadGame()
     {
         if (File.Exists(savePath))
         {
             string json = File.ReadAllText(savePath);
-            SaveData data = JsonUtility.FromJson<SaveData>(json);
-            return data;
+            _cachedData = JsonUtility.FromJson<SaveData>(json);
         }
-
-        return null;
+        else
+        {
+            _cachedData = new SaveData();
+            _cachedData.unlockedLevel = 1;
+            _cachedData.diamonds = 0;
+        }
     }
 
-    public bool HasSave()
+    public SaveData GetData()
     {
-        return File.Exists(savePath);
+        if (_cachedData == null) LoadGame();
+        return _cachedData;
+    }
+
+    public void SetUnlockedLevel(int value)
+    {
+        _cachedData.unlockedLevel = value;
+        SaveGame();
+    }
+
+    public void SetDiamonds(int value)
+    {
+        _cachedData.diamonds = value;
+        SaveGame();
     }
 
     public void DeleteSave()
@@ -61,5 +77,9 @@ public class SaveSystem : MonoBehaviour
         {
             File.Delete(savePath);
         }
+
+        _cachedData = new SaveData();
+        _cachedData.unlockedLevel = 1;
+        _cachedData.diamonds = 0;
     }
 }

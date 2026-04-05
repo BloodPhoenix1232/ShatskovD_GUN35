@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ShootingEnemy : MonoBehaviour
+public class ShootingEnemy : Enemy
 {
     [SerializeField] private float _detectionRadius = 5f;
     [SerializeField] private LayerMask _playerLayer;
@@ -102,6 +102,11 @@ public class ShootingEnemy : MonoBehaviour
         }
 
         Destroy(projectile, 3f);
+    }
+
+    public void TakeDamage(int damage)
+    {
+        Die();
     }
 
     private void OnDrawGizmosSelected()
