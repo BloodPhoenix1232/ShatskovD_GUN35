@@ -6,6 +6,10 @@ public class SaveData
 {
     public int unlockedLevel;
     public int diamonds;
+    public int stoneDamageLevel;
+    public int doubleJumpUnlocked;
+    public int chargePowerLevel;
+    public int moveSpeedLevel;
 }
 
 public class SaveSystem : MonoBehaviour
@@ -48,7 +52,7 @@ public class SaveSystem : MonoBehaviour
         else
         {
             _cachedData = new SaveData();
-            _cachedData.unlockedLevel = 1;
+            _cachedData.unlockedLevel = 3;
             _cachedData.diamonds = 0;
         }
     }
@@ -71,6 +75,15 @@ public class SaveSystem : MonoBehaviour
         SaveGame();
     }
 
+    public void SetUpgrades(int stoneDamage, int doubleJump, int chargePower, int moveSpeed)
+    {
+        _cachedData.stoneDamageLevel = stoneDamage;
+        _cachedData.doubleJumpUnlocked = doubleJump;
+        _cachedData.chargePowerLevel = chargePower;
+        _cachedData.moveSpeedLevel = moveSpeed;
+        SaveGame();
+    }
+
     public void DeleteSave()
     {
         if (File.Exists(savePath))
@@ -79,7 +92,7 @@ public class SaveSystem : MonoBehaviour
         }
 
         _cachedData = new SaveData();
-        _cachedData.unlockedLevel = 1;
+        _cachedData.unlockedLevel = 3;
         _cachedData.diamonds = 0;
     }
 }

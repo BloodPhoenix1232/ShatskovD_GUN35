@@ -257,12 +257,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 878870f84b0f9da448934e9cccaaf0e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _damage: 1
+  _damageCooldown: 1
+  _diamondsDrop: 1
   _detectionRadius: 5
   _playerLayer:
     serializedVersion: 2
     m_Bits: 128
   _shootPoint: {fileID: 8714495010422587073}
-  _projectilePrefab: {fileID: 7649909420604757587, guid: 54d9053fad461a64eb74670d1d5452af, type: 3}
+  _projectilePrefab: {fileID: 5123354097458865870, guid: 16e409a39c1e54443ae54e96143da9a4, type: 3}
   _shootInterval: 1.5
   _projectileSpeed: 5
-  _detectionIndicator: {fileID: 0}
+  _projectilePool: {fileID: 0}

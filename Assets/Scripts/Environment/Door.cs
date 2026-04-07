@@ -17,13 +17,14 @@ public class Door : MonoBehaviour
 
     private void UnlockNextLevel()
     {
-        int currentIndex = SceneManager.GetActiveScene().buildIndex;
-        SaveData data = SaveSystem.Instance?.GetData();
-        int currentUnlocked = data?.unlockedLevel ?? 1;
+        int nextIndex = SceneManager.GetActiveScene().buildIndex + 1;
 
-        if (currentIndex > currentUnlocked)
+        SaveData data = SaveSystem.Instance?.GetData();
+        int currentUnlocked = data?.unlockedLevel ?? nextIndex;
+
+        if (nextIndex > currentUnlocked)
         {
-            SaveSystem.Instance?.SetUnlockedLevel(currentIndex);
+            SaveSystem.Instance?.SetUnlockedLevel(nextIndex);
         }
     }
 
@@ -34,15 +35,23 @@ public class Door : MonoBehaviour
         if (!string.IsNullOrEmpty(_nextLevelName))
         {
             SceneManager.LoadScene(_nextLevelName);
+            return;
         }
-        else if (_nextLevelIndex >= 0)
+
+        if (_nextLevelIndex >= 0)
         {
             SceneManager.LoadScene(_nextLevelIndex);
+            return;
         }
-        else
+
+        int currentIndex = SceneManager.GetActiveScene().buildIndex;
+        int nextIndex = currentIndex + 1;
+
+        if (nextIndex >= SceneManager.sceneCountInBuildSettings)
         {
-            int nextIndex = SceneManager.GetActiveScene().buildIndex + 1;
-            SceneManager.LoadScene(nextIndex);
+            nextIndex = currentIndex;
         }
+
+        SceneManager.LoadScene(nextIndex);
     }
 }

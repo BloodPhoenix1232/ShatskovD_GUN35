@@ -5,23 +5,24 @@ public class LevelSelect : MonoBehaviour
 {
     [SerializeField] private string _mainMenuSceneName = "MainMenu";
     [SerializeField] private UnityEngine.UI.Button[] _levelButtons;
+    [SerializeField] private int _firstLevelIndex = 3;
 
     private void Start()
     {
-        SaveData data = SaveSystem.Instance?.GetData();
-        int unlockedLevel = data?.unlockedLevel ?? 1;
-
         UpdateLevelButtons();
     }
 
     private void UpdateLevelButtons()
     {
         SaveData data = SaveSystem.Instance?.GetData();
-        int unlockedLevel = data?.unlockedLevel ?? 1;
+
+        int unlockedIndex = data?.unlockedLevel ?? _firstLevelIndex;
 
         for (int i = 0; i < _levelButtons.Length; i++)
         {
-            _levelButtons[i].interactable = i + 1 <= unlockedLevel;
+            int sceneIndex = i + _firstLevelIndex;
+
+            _levelButtons[i].interactable = sceneIndex <= unlockedIndex;
         }
     }
 

@@ -6,11 +6,16 @@ public class MainMenu : MonoBehaviour
     public void StartGame()
     {
         SaveData data = SaveSystem.Instance?.GetData();
-        int unlockedLevel = data?.unlockedLevel ?? 1;
+        int unlockedIndex = data?.unlockedLevel ?? 3;
 
-        int firstLevelIndex = unlockedLevel;
+        int maxIndex = SceneManager.sceneCountInBuildSettings - 1;
 
-        SceneManager.LoadScene(firstLevelIndex + 1);
+        if (unlockedIndex > maxIndex)
+        {
+            unlockedIndex = maxIndex;
+        }
+
+        SceneManager.LoadScene(unlockedIndex);
         Time.timeScale = 1f;
     }
 
@@ -31,5 +36,10 @@ public class MainMenu : MonoBehaviour
     public void ResetProgress()
     {
         SaveSystem.Instance?.DeleteSave();
+    }
+
+    public void OpenUpgradeShop()
+    {
+        SceneManager.LoadScene("UpgradeShop");
     }
 }

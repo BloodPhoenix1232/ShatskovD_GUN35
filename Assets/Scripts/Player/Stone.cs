@@ -2,21 +2,22 @@ using UnityEngine;
 
 public class Stone : MonoBehaviour
 {
-    [SerializeField] private int _damage = 1;
     [SerializeField] private LayerMask _groundLayer;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        int damage = UpgradeManager.Instance?.GetStoneDamage() ?? 1;
+
         if (other.TryGetComponent<MeleeEnemy>(out MeleeEnemy enemy))
         {
-            enemy.TakeDamage(_damage);
+            enemy.TakeDamage(damage);
             Destroy(gameObject);
             return;
         }
 
         if (other.TryGetComponent<ShootingEnemy>(out ShootingEnemy shootingEnemy))
         {
-            shootingEnemy.TakeDamage(_damage);
+            shootingEnemy.TakeDamage(damage);
             Destroy(gameObject);
             return;
         }

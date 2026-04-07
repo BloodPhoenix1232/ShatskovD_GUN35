@@ -10,20 +10,14 @@ public class ShootingEnemy : Enemy
     [SerializeField] private float _shootInterval = 1.5f;
     [SerializeField] private float _projectileSpeed = 5f;
 
-    [SerializeField] private GameObject _detectionIndicator;
+    [SerializeField] private ObjectPool _projectilePool;
 
     private Transform _player;
     private float _shootTimer;
-    private ObjectPool _projectilePool;
 
     private void Start()
     {
         _shootTimer = _shootInterval;
-
-        if (_detectionIndicator != null)
-            _detectionIndicator.SetActive(false);
-
-        _projectilePool = FindObjectOfType<ObjectPool>();
     }
 
     private void Update()
@@ -36,9 +30,6 @@ public class ShootingEnemy : Enemy
 
             if (distance <= _detectionRadius)
             {
-                if (_detectionIndicator != null)
-                    _detectionIndicator.SetActive(true);
-
                 _shootTimer -= Time.deltaTime;
 
                 if (_shootTimer <= 0)
@@ -46,11 +37,6 @@ public class ShootingEnemy : Enemy
                     Shoot();
                     _shootTimer = _shootInterval;
                 }
-            }
-            else
-            {
-                if (_detectionIndicator != null)
-                    _detectionIndicator.SetActive(false);
             }
         }
     }
@@ -70,6 +56,12 @@ public class ShootingEnemy : Enemy
     private void Shoot()
     {
         if (_projectilePrefab == null || _shootPoint == null) return;
+        if (_player == null) return;
+
+        if (_projectilePool == null)
+        {
+            _projectilePool = FindObjectOfType<ObjectPool>();
+        }
 
         GameObject projectile;
 
@@ -97,11 +89,10 @@ public class ShootingEnemy : Enemy
         if (projScript != null)
         {
             projScript.SetDamage(1);
+
             if (_projectilePool != null)
                 projScript.SetPool(_projectilePool);
         }
-
-        Destroy(projectile, 3f);
     }
 
     public void TakeDamage(int damage)

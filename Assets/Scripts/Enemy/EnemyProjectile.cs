@@ -4,8 +4,19 @@ public class EnemyProjectile : MonoBehaviour
 {
     [SerializeField] private int _damage = 1;
     [SerializeField] private LayerMask _groundLayer;
+    [SerializeField] private float _lifeTime = 3f;
 
     private ObjectPool _pool;
+
+    private void OnEnable()
+    {
+        Invoke(nameof(ReturnToPool), _lifeTime);
+    }
+
+    private void OnDisable()
+    {
+        CancelInvoke();
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {

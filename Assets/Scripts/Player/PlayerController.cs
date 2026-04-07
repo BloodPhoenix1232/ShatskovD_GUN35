@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [Header("Movement Settings")]
-    [SerializeField] private float _moveSpeed = 5f;
+    [SerializeField] private float _baseMoveSpeed = 5f;
 
     [Header("Jump Settings")]
     [SerializeField] private float _baseJumpForce = 10f;
@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _groundCheckRadius = 0.2f;
     [SerializeField] private LayerMask _groundLayer;
 
+    private float _moveSpeed;
     private float _moveInput;
     private Rigidbody2D _rb;
     private PlayerControls _playerControls;
@@ -25,10 +26,11 @@ public class PlayerController : MonoBehaviour
     private Animator _animator;
     private SpriteRenderer _spriteRenderer;
 
+    private bool _hasDoubleJump;
+    private bool _canDoubleJump;
 
     [HideInInspector]
     public bool canMove = true;
-
 
     private void Awake()
     {
@@ -38,6 +40,14 @@ public class PlayerController : MonoBehaviour
         _playerControls = new PlayerControls();
         _animator = GetComponent<Animator>();
         _spriteRenderer = GetComponent<SpriteRenderer>();
+
+        _moveSpeed = _baseMoveSpeed;
+    }
+
+    private void Start()
+    {
+        transform.localScale = new Vector3(3, 3, 3);
+        ApplyUpgrades();
     }
 
     private void OnEnable()
@@ -56,15 +66,15 @@ public class PlayerController : MonoBehaviour
         _playerControls.Gameplay.Jump.performed -= OnJumpPerformed;
     }
 
-    private void Start()
-    {
-        transform.localScale = new Vector3(1, 1, 1);
-    }
-
     private void Update()
     {
         CheckGrounded();
         UpdateAnimations();
+
+        if (_isGrounded)
+        {
+            _canDoubleJump = true;
+        }
     }
 
     private void FixedUpdate()
@@ -102,22 +112,33 @@ public class PlayerController : MonoBehaviour
     private void OnJumpPerformed(InputAction.CallbackContext context)
     {
         if (!canMove) return;
+
         if (_isGrounded)
         {
-            float currentScale = _playerResize.CurrentScale;
+            PerformJump();
+        }
+        else if (_hasDoubleJump && _canDoubleJump)
+        {
+            _canDoubleJump = false;
+            PerformJump();
+        }
+    }
 
-            float minScale = 1f;
-            float maxScale = 3f;
-            float t = (currentScale - minScale) / (maxScale - minScale);
-            float jumpMultiplier = Mathf.Lerp(_minJumpMultiplier, _maxJumpMultiplier, t);
-            float jumpForce = _baseJumpForce * jumpMultiplier;
+    private void PerformJump()
+    {
+        float currentScale = _playerResize.CurrentScale;
 
-            _rb.velocity = new Vector2(_rb.velocity.x, jumpForce);
+        float minScale = 1f;
+        float maxScale = 3f;
+        float t = (currentScale - minScale) / (maxScale - minScale);
+        float jumpMultiplier = Mathf.Lerp(_minJumpMultiplier, _maxJumpMultiplier, t);
+        float jumpForce = _baseJumpForce * jumpMultiplier;
 
-            if (_animator != null)
-            {
-                _animator.SetBool("Jump", true);
-            }
+        _rb.velocity = new Vector2(_rb.velocity.x, jumpForce);
+
+        if (_animator != null)
+        {
+            _animator.SetBool("Jump", true);
         }
     }
 
@@ -144,6 +165,15 @@ public class PlayerController : MonoBehaviour
         Vector2 groundCheckPoint = new Vector2(transform.position.x, colliderBottom);
 
         _isGrounded = Physics2D.OverlapCircle(groundCheckPoint, _groundCheckRadius, _groundLayer);
+    }
+
+    private void ApplyUpgrades()
+    {
+        if (UpgradeManager.Instance != null)
+        {
+            _moveSpeed = UpgradeManager.Instance.GetMoveSpeedBonus();
+            _hasDoubleJump = UpgradeManager.Instance.doubleJumpUnlocked == 1;
+        }
     }
 
     private void OnDrawGizmosSelected()

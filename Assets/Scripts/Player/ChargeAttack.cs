@@ -44,6 +44,11 @@ public class ChargeAttack : MonoBehaviour
 
     private void Start()
     {
+        if (UpgradeManager.Instance != null)
+        {
+            _maxPower = UpgradeManager.Instance.GetChargeMaxPower();
+        }
+
         if (_chargePanel != null)
             _chargePanel.SetActive(false);
 
